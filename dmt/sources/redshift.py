@@ -1,5 +1,5 @@
 import os
-from datetime import datetime
+from datetime import datetime, timedelta
 
 import psycopg2
 import psycopg2.extras
@@ -25,8 +25,8 @@ class Profile:
         cursor = self.conn.cursor(
             cursor_factory=psycopg2.extras.DictCursor
         )
-        now = datetime.now().date()
-        cursor.execute(query, (now, now, now))
+        start_time = (datetime.now() - timedelta(days=2)).date()
+        cursor.execute(query, (start_time, start_time, start_time))
         return cursor.fetchall()
 
 

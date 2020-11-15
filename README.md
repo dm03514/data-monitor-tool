@@ -12,6 +12,7 @@ Profiling helps you understand what work your database is doing.
     - The # of rows scanned
     - The amount of time spent querying
 
+The following command generates a profile csv, for all queries within the last 2 days.
 ```
 $ python cmd/profile.py redshift --connection-string 'dbname=datawarehouse user=dannym password=X host=localhost port=5439' > profile.csv
 ```
